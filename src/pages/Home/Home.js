@@ -11,8 +11,15 @@ export default function Home() {
     JSON.parse(localStorage.getItem("darkmode")) || false
   );
 
-  const [playOn] = useSound("https://www.joshwcomeau.com/sounds/switch-on.mp3", { volume: 0.5 });
-  const [playOff] = useSound("https://www.joshwcomeau.com/sounds/switch-off.mp3", { volume: 0.5 });
+  const [playOn] = useSound(
+    "https://www.joshwcomeau.com/sounds/switch-on.mp3",
+    { volume: 0.5 }
+  );
+  const [
+    playOff,
+  ] = useSound("https://www.joshwcomeau.com/sounds/switch-off.mp3", {
+    volume: 0.5,
+  });
 
   React.useEffect(() => {
     if (
@@ -27,7 +34,7 @@ export default function Home() {
   });
 
   const toggleDarkMode = () => {
-    if(darkMode) {
+    if (darkMode) {
       playOff();
     } else {
       playOn();
@@ -88,7 +95,12 @@ export default function Home() {
               <br />
               Utkarsh Dubey - yk who
             </p>
-            <button className="flex justify-center items-center font-vg5000 text-xl bg-white dark:bg-darkmodebg text-primary w-full py-4">
+            <button
+              className="flex justify-center items-center font-vg5000 text-xl bg-white dark:bg-darkmodebg text-primary w-full py-4"
+              onClick={() => {
+                setConfetti(!confetti);
+              }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="22.527"
