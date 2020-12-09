@@ -22,6 +22,10 @@ export default function Home() {
     }
   );
 
+  const [pop] = useSound("https://www.joshwcomeau.com/sounds/rising-pops.mp3", {
+    volume: 0.5,
+  });
+
   React.useEffect(() => {
     if (
       JSON.parse(localStorage.getItem("darkmode")) ||
@@ -52,7 +56,7 @@ export default function Home() {
   const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
   const trans2 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)`;
 
-  const [props, set] = useSpring(() => ({
+  const [animation, set] = useSpring(() => ({
     xy: [0, 0],
     config: { mass: 10, tension: 550, friction: 140 },
   }));
@@ -100,6 +104,7 @@ export default function Home() {
               className="flex justify-center items-center font-vg5000 text-xl bg-white dark:bg-darkmodebg text-primary w-full py-4"
               onClick={() => {
                 setConfetti(!confetti);
+                pop();
               }}
             >
               <svg
@@ -129,7 +134,7 @@ export default function Home() {
               width="1000"
               height="1000"
               viewBox="0 0 859 859"
-              style={{ transform: props.xy.interpolate(trans1) }}
+              style={{ transform: animation.xy.interpolate(trans1) }}
             >
               <defs>
                 <linearGradient
@@ -271,7 +276,7 @@ export default function Home() {
               width="940"
               height="940"
               viewBox="0 0 940 940"
-              style={{ transform: props.xy.interpolate(trans2) }}
+              style={{ transform: animation.xy.interpolate(trans2) }}
             >
               <defs>
                 <linearGradient
