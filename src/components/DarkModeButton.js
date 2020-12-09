@@ -3,7 +3,7 @@ import React from "react";
 export default function DarkModeButton(props) {
   return (
     <button
-      className="absolute bottom-0 left-0 m-4 py-4 px-4 shadow-2xl bg-gray-200 rounded-xl focus:outline-none focus:ring focus:border-primary"
+      className="absolute sm:bottom-0 sm:left-0 sm:m-4 sm:top-auto px-full w-full sm:w-auto flex justify-center items-center top-0 py-4 sm:px-4 sm:shadow-2xl bg-gray-200 sm:rounded-xl focus:outline-none focus:ring focus:border-primary z-50"
       onClick={props.onClick}
     >
       {props.darkMode ? (

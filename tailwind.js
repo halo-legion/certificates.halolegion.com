@@ -10,9 +10,6 @@ module.exports = {
   presets: [],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
-    extend: {
-      fill: ['dark']
-    },
     screens: {
       sm: '640px',
       md: '768px',

@@ -6,12 +6,9 @@ import { ToastContainer } from "react-toastify";
 import { Home } from "./pages/exports";
 import Loading from "./components/Loading/Loading";
 
-// Mobile imports
-import useDeviceDetect from "./customHooks/useDeviceDetect";
-import { MobileHome } from "./mobile/exports";
 
 export default function App() {
-  const { isMobile } = useDeviceDetect();
+
 
   return (
     <>
@@ -29,7 +26,6 @@ export default function App() {
       <Router>
         <Suspense fallback={<Loading />}>
           <Switch>
-            {isMobile && <Route exact path="/" component={MobileHome} />}
             <Route exact path="/" component={Home} />
             <Route path="*">404 - Requested URL not found</Route>
           </Switch>
