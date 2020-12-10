@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
-import { Home } from "./pages/exports";
+import { Home, Certificate } from "./pages/exports";
 import Loading from "./components/Loading/Loading";
 
 
@@ -26,6 +26,7 @@ export default function App() {
       <Router>
         <Suspense fallback={<Loading />}>
           <Switch>
+            <Route exact path="/certificate" component={Certificate} />
             <Route exact path="/" component={Home} />
             <Route path="*">404 - Requested URL not found</Route>
           </Switch>

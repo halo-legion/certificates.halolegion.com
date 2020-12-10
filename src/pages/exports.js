@@ -1,5 +1,6 @@
 import { lazy } from "react";
 
-const Home = lazy(() => import("./Home/Home"))
+const Home = lazy(() => import("./Home/Home"));
+const Certificate = lazy(() => import("./Certificate/Certificate"));
 
-export { Home }
+export { Home, Certificate };
